@@ -1,4 +1,9 @@
-import { MethodGetInfoRequest, MethodGetInfoResponse } from "../@types/Method";
+import { 
+    MethodGetInfoRequest, 
+    MethodGetInfoResponse,
+    MethodEditRequest,
+    MethodEditResponse
+} from "../@types/Method";
 import CrystalUtils from "../utils/CrystalUtils";
 import axios from "axios";
 
@@ -20,6 +25,19 @@ export default class Method {
             auth_secret: this.auth_secret
         }
         const info = await axios.post<MethodGetInfoResponse>(url, data);
+        return info.data;
+    }
+    
+    public async editMethod(method: string, extra_commission_percent: number, enabled: boolean): Promise<MethodEditResponse> {
+        const url = this.crystal_utils.buildUrl('method', 'edit');
+        const data: MethodEditRequest = {
+            auth_login: this.auth_login,
+            auth_secret: this.auth_secret,
+            method: method,
+            extra_commission_percent: extra_commission_percent,
+            enabled: enabled,
+        }
+        const info = await axios.post<MethodEditResponse>(url, data);
         return info.data;
     }
 }

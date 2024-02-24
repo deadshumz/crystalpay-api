@@ -20,3 +20,16 @@ export type MethodGetInfoResponse = {
         [key: string]: MethodsItem
     },
 }
+
+export type MethodEditRequest = {
+    auth_login: string,
+    auth_secret: string,
+    method: string,
+    extra_commission_percent: number,
+    enabled: boolean,
+}
+
+export type MethodEditResponse = {
+    error: boolean,
+    errrors: string[],
+}
