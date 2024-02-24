@@ -12,8 +12,8 @@ build/
 # Compiled JavaScript files
 *.js
 
-# TypeScript declaration files
-*.d.ts
+# TypeScript test files
+*.test.ts
 
 # TypeScript source map files
 *.map
