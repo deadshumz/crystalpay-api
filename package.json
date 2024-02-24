@@ -1,7 +1,7 @@
 {
-  "name": "crystalpay-api",
+  "name": "crystalpay-sdk",
   "version": "1.0.0",
-  "description": "",
+  "description": "CrystalPay API",
   "main": "index.js",
   "scripts": {
     "dev": "tsc -w & nodemon dist/index.js",
