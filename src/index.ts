@@ -2,6 +2,7 @@ import CrystalUtils from './utils/CrystalUtils';
 import Me from './api/Me';
 import Balance from './api/Balance';
 import Method from './api/Method';
+import Invoice from './api/Invoice';
 
 /**
  * @export
@@ -13,10 +14,12 @@ export default class CrystalPay {
     public Me : Me;
     public Balance: Balance;
     public Method: Method;
+    public Invoice: Invoice;
 
     constructor(auth_login: string, auth_secret: string) {
         this.Me = new Me(auth_login, auth_secret, new CrystalUtils);
         this.Balance = new Balance(auth_login, auth_secret, new CrystalUtils);
         this.Method = new Method(auth_login, auth_secret, new CrystalUtils);
+        this.Invoice = new Invoice(auth_login, auth_secret, new CrystalUtils);
     }
 }
