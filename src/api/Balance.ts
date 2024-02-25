@@ -2,17 +2,26 @@ import { BalanceGetInfoRequest, BalanceGetInfoResponse } from "../@types/Balance
 import CrystalUtils from "../utils/CrystalUtils";
 import axios from "axios";
 
+/**
+ * @export
+ * @class Balance
+ * @param {string} auth_login - CrystalPay login
+ * @param {string} auth_secret - CrystalPay secret
+ * @param {CrystalUtils} crystal_utils - CrystalUtils instance
+ */
 export default class Balance {
-    private auth_login: string;
-    private auth_secret: string;
-    private crystal_utils: CrystalUtils;
-
-    constructor(auth_login: string, auth_secret: string, crystal_utils: CrystalUtils) {
+    constructor(private auth_login: string, private auth_secret: string, private crystal_utils: CrystalUtils) {
         this.auth_login = auth_login;
         this.auth_secret = auth_secret;
         this.crystal_utils = crystal_utils;
     }
 
+    /**
+     * Get information about the balance
+     * @public
+     * @async
+     * @returns {Promise<BalanceGetInfoResponse>} Balance info
+     */
     public async getInfo(): Promise<BalanceGetInfoResponse> {
         const url = this.crystal_utils.buildUrl('balance', 'info');
         const data: BalanceGetInfoRequest = {

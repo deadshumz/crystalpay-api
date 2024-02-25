@@ -3,6 +3,12 @@ import Me from './api/Me';
 import Balance from './api/Balance';
 import Method from './api/Method';
 
+/**
+ * @export
+ * @class CrystalPay
+ * @param {string} auth_login - CrystalPay login
+ * @param {string} auth_secret - CrystalPay secret
+ */
 export default class CrystalPay {
     public Me : Me;
     public Balance: Balance;

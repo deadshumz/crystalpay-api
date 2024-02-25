@@ -7,17 +7,26 @@ import {
 import CrystalUtils from "../utils/CrystalUtils";
 import axios from "axios";
 
+/**
+ * @export
+ * @class Method
+ * @param {string} auth_login - CrystalPay login
+ * @param {string} auth_secret - CrystalPay secret
+ * @param {CrystalUtils} crystal_utils - CrystalUtils instance
+ */
 export default class Method {
-    private auth_login: string;
-    private auth_secret: string;
-    private crystal_utils: CrystalUtils;
-
-    constructor(auth_login: string, auth_secret: string, crystal_utils: CrystalUtils) {
+    constructor(private auth_login: string, private auth_secret: string, private crystal_utils: CrystalUtils) {
         this.auth_login = auth_login;
         this.auth_secret = auth_secret;
         this.crystal_utils = crystal_utils;
     }
 
+    /**
+     * Get information about the payment methods
+     * @public
+     * @async
+     * @returns {Promise<MethodGetInfoResponse>} Payment methods info
+     */
     public async getInfo(): Promise<MethodGetInfoResponse> {
         const url = this.crystal_utils.buildUrl('method', 'list');
         const data: MethodGetInfoRequest = {
@@ -27,8 +36,17 @@ export default class Method {
         const info = await axios.post<MethodGetInfoResponse>(url, data);
         return info.data;
     }
-    
-    public async editMethod(method: string, extra_commission_percent: number, enabled: boolean): Promise<MethodEditResponse> {
+
+    /**
+     * Edit payment method
+     * @public
+     * @async
+     * @param {string} method - Payment method
+     * @param {number} extra_commission_percent - Extra commission percent
+     * @param {boolean} enabled - Enable/disable payment method
+     * @returns {Promise<MethodEditResponse>} Status
+     */
+    public async edit(method: string, extra_commission_percent: number, enabled: boolean): Promise<MethodEditResponse> {
         const url = this.crystal_utils.buildUrl('method', 'edit');
         const data: MethodEditRequest = {
             auth_login: this.auth_login,
