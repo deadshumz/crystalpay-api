@@ -4,6 +4,8 @@ import Balance from './api/Balance';
 import Method from './api/Method';
 import Invoice from './api/Invoice';
 import Payoff from './api/Payoff';
+import Ticker from './api/Ticker';
+import History from './api/History';
 
 /**
  * @export
@@ -17,6 +19,8 @@ export default class CrystalPay {
     public Method: Method;
     public Invoice: Invoice;
     public Payoff: Payoff;
+    public Ticker: Ticker;
+    public History: History;
 
     constructor(auth_login: string, auth_secret: string) {
         this.Me = new Me(auth_login, auth_secret, new CrystalUtils);
@@ -24,5 +28,7 @@ export default class CrystalPay {
         this.Method = new Method(auth_login, auth_secret, new CrystalUtils);
         this.Invoice = new Invoice(auth_login, auth_secret, new CrystalUtils);
         this.Payoff = new Payoff(auth_login, auth_secret, new CrystalUtils);
+        this.Ticker = new Ticker(auth_login, auth_secret, new CrystalUtils);
+        this.History = new History(auth_login, auth_secret, new CrystalUtils);
     }
 }
