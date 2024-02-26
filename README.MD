@@ -1,8 +1,7 @@
 <header>
 
 <div align="center">
-<div style="font-size:60px;margin-bottom:-25px;">💎</div>
-<h1 align="center">CrystalPay-SDK</h1>
+<h1 align="center">💎 CrystalPay-SDK</h1>
 
 <a href="https://github.com/deadshumz/crystalpay-sdk">
 	<img src="https://img.shields.io/github/languages/top/deadshumz/crystalpay-sdk?style=flat-square&logo=github" alt="GitHub top language" />
