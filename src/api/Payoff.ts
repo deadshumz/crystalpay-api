@@ -1,4 +1,6 @@
 import { 
+    PayoffCancelRequest,
+    PayoffCancelResponse,
     PayoffCreateRequest, 
     PayoffCreateResponse, 
     PayoffSubmitRequest, 
@@ -44,6 +46,18 @@ export default class Payoff {
             id: id,
         }
         const info = await axios.post<PayoffSubmitResponse>(url, data);
+        return info.data;
+    }
+
+    public async cancel(signature: string, id: string): Promise<PayoffCancelResponse> {
+        const url = this.crystal_utils.buildUrl('payoff', 'cancel');
+        const data: PayoffCancelRequest = {
+            auth_login: this.auth_login,
+            auth_secret: this.auth_secret,
+            signature: signature,
+            id: id,
+        }
+        const info = await axios.post<PayoffCancelResponse>(url, data);
         return info.data;
     }
 }

@@ -38,7 +38,7 @@ export type PayoffSubmitResponse = {
     error: boolean,
     errors: string[],
     id: string,
-    state: "created" | "processing" | "failed" | "payed" | "canceled",
+    state: "failed" | "payed" | "processing",
     method: string,
     currency: string,
     commission: number,
@@ -54,9 +54,32 @@ export type PayoffSubmitResponse = {
     created_at: string
 }
 
-export type PayoffCancelRequest = {}
+export type PayoffCancelRequest = {
+    auth_login: string,
+    auth_secret: string,
+    signature: string,
+    id: string,
+}
 
-export type PayoffCancelResponse = {}
+export type PayoffCancelResponse = {
+    error: boolean,
+    errors: string[],
+    id: string,
+    state: "canceled",
+    method: string,
+    currency: string,
+    commission: number,
+    amount: number,
+    rub_amount: number,
+    receive_amount: number,
+    deduction_amount: number,
+    subtract_from: SubtractFrom,
+    wallet: string,
+    message: string,
+    callback_url: string,
+    extra: string,
+    created_at: string
+}
 
 export type PayoffInfoRequest = {}
 
