@@ -41,8 +41,8 @@ export default class Method {
      * Edit payment method
      * @public
      * @async
-     * @param {string} method - Payment method
-     * @param {number} extra_commission_percent - Extra commission percent
+     * @param {string} method - Payment method, Examples: LZTMARKET, BITCOIN
+     * @param {number} extra_commission_percent - Extra commission percent for payment method, in percent
      * @param {boolean} enabled - Enable/disable payment method
      * @returns {Promise<MethodEditResponse>} Status
      */

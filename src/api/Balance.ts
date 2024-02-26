@@ -20,13 +20,15 @@ export default class Balance {
      * Get information about the balance
      * @public
      * @async
+     * @param {boolean} hide_empty - Hide empty invoices
      * @returns {Promise<BalanceGetInfoResponse>} Balance info
      */
-    public async getInfo(): Promise<BalanceGetInfoResponse> {
+    public async getInfo(hide_empty: boolean = false): Promise<BalanceGetInfoResponse> {
         const url = this.crystal_utils.buildUrl('balance', 'info');
         const data: BalanceGetInfoRequest = {
             auth_login: this.auth_login,
-            auth_secret: this.auth_secret
+            auth_secret: this.auth_secret,
+            hide_empty: hide_empty,
         }
         const info = await axios.post<BalanceGetInfoResponse>(url, data);
         return info.data;
