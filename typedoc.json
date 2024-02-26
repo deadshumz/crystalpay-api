@@ -1,0 +1,9 @@
+{
+    "entryPoints": ["src/index.ts"],
+    "out": "docs",
+    "name": "СrystalPay SDK",
+    "excludePrivate": true,
+    "excludeProtected": true,
+    "excludeExternals": true
+}
+  
