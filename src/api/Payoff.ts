@@ -1,4 +1,10 @@
-import { PayoffCreateRequest, PayoffCreateResponse, SubtractFrom } from "../@types/Payoff";
+import { 
+    PayoffCreateRequest, 
+    PayoffCreateResponse, 
+    PayoffSubmitRequest, 
+    PayoffSubmitResponse, 
+    SubtractFrom 
+} from "../@types/Payoff";
 import CrystalUtils from "../utils/CrystalUtils";
 import axios from "axios";
 
@@ -26,6 +32,18 @@ export default class Payoff {
             ...extra
         }
         const info = await axios.post<PayoffCreateResponse>(url, data);
+        return info.data;
+    }
+
+    public async submit(signature: string, id: string): Promise<PayoffSubmitResponse> {
+        const url = this.crystal_utils.buildUrl('payoff', 'submit');
+        const data: PayoffSubmitRequest = {
+            auth_login: this.auth_login,
+            auth_secret: this.auth_secret,
+            signature: signature,
+            id: id,
+        }
+        const info = await axios.post<PayoffSubmitResponse>(url, data);
         return info.data;
     }
 }
