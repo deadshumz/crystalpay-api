@@ -81,6 +81,28 @@ export type PayoffCancelResponse = {
     created_at: string
 }
 
-export type PayoffInfoRequest = {}
+export type PayoffInfoRequest = {
+    auth_login: string,
+    auth_secret: string,
+    id: string,
+}
 
-export type PayoffInfoResponse = {}
+export type PayoffInfoResponse = {
+    error: boolean,
+    errors: string[],
+    id: string,
+    state: "created" | "failed" | "payed" | "processing" | "canceled",
+    method: string,
+    currency: string,
+    commission: number,
+    amount: number,
+    rub_amount: number,
+    receive_amount: number,
+    deduction_amount: number,
+    subtract_from: SubtractFrom,
+    wallet: string,
+    message: string,
+    callback_url: string,
+    extra: string,
+    created_at: string
+}

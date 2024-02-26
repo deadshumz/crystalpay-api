@@ -3,6 +3,8 @@ import {
     PayoffCancelResponse,
     PayoffCreateRequest, 
     PayoffCreateResponse, 
+    PayoffInfoRequest, 
+    PayoffInfoResponse, 
     PayoffSubmitRequest, 
     PayoffSubmitResponse, 
     SubtractFrom 
@@ -58,6 +60,17 @@ export default class Payoff {
             id: id,
         }
         const info = await axios.post<PayoffCancelResponse>(url, data);
+        return info.data;
+    }
+
+    public async info(id: string): Promise<PayoffInfoResponse> {
+        const url = this.crystal_utils.buildUrl('payoff', 'info');
+        const data: PayoffInfoRequest = {
+            auth_login: this.auth_login,
+            auth_secret: this.auth_secret,
+            id: id,
+        }
+        const info = await axios.post<PayoffInfoResponse>(url, data);
         return info.data;
     }
 }
