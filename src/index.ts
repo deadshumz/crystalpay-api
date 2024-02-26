@@ -32,3 +32,5 @@ export default class CrystalPay {
         this.History = new History(auth_login, auth_secret, new CrystalUtils);
     }
 }
+
+export {Me, Balance, Method, Invoice, Payoff, Ticker, History, CrystalUtils}
