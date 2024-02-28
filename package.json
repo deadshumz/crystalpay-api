@@ -2,10 +2,16 @@
   "name": "crystalpay-sdk",
   "version": "1.1.0",
   "description": "CrystalPay API",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "tsc -w & nodemon dist/index.js",
     "test": "jest"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
   "keywords": [],
   "author": "deadshumz",
