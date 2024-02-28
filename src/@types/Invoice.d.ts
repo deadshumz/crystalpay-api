@@ -30,7 +30,7 @@ export type InvoiceInfoRequest = {
     id: string
 }
 
-type InvoiceStates = 'notpayed' | 'processing' | 'wrongamount' | 'failed' | 'payed'
+export type InvoiceStates = 'notpayed' | 'processing' | 'wrongamount' | 'failed' | 'payed'
 
 export type InvoiceInfoResponse = {
     error: boolean,

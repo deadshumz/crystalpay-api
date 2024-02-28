@@ -15,11 +15,11 @@ export type TickerGetRequest = {
     tickers: string[],
 }
 
-type Currency = {
+export type Currency = {
     price: number;
 };
 
-type Currencies = {
+export type Currencies = {
     [key: string]: Currency;
 };
 

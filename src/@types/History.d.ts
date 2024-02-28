@@ -5,7 +5,7 @@ export type HistoryPaymentsRequest = {
     items: number,
 }
 
-type Payment = {
+export type Payment = {
     id: string,
     state: "notpayed" | "processing" | "wrongamount" | "failed" | "payed",
     method: string | null,
@@ -28,7 +28,7 @@ export type HistoryPayoffsRequest = {
     items: number,
 }
 
-type Payoff = {
+export type Payoff = {
     id: string,
     state: "created" | "processing" | "payed" | "failed",
     method: string,

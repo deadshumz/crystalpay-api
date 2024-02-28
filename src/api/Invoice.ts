@@ -1,4 +1,4 @@
-import { InvoiceCreateResponse, InvoiceType } from "../@types/Invoice";
+import { InvoiceCreateResponse, InvoiceInfoRequest, InvoiceInfoResponse, InvoiceType } from "../@types/Invoice";
 import CrystalUtils from "../utils/CrystalUtils";
 import axios from 'axios';
 
@@ -64,14 +64,14 @@ export default class Invoice {
      * @param {string} id - Invoice ID
      * @returns {Promise<InvoiceCreateResponse>}
      */
-    public async getInfo(id: string): Promise<InvoiceCreateResponse> {
+    public async getInfo(id: string): Promise<InvoiceInfoResponse> {
         const url = this.crystal_utils.buildUrl('invoice', 'info');
-        const data = {
+        const data: InvoiceInfoRequest = {
             auth_login: this.auth_login,
             auth_secret: this.auth_secret,
             id: id
         }
-        const info = await axios.post<InvoiceCreateResponse>(url, data);
+        const info = await axios.post<InvoiceInfoResponse>(url, data);
         return info.data;
     }
 }

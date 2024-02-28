@@ -3,7 +3,7 @@ export type MethodGetInfoRequest = {
     auth_secret: string,
 }
 
-type MethodsItem = {
+export type MethodsItem = {
     name: string,
     enabled: boolean,
     extra_commission_percent: number,

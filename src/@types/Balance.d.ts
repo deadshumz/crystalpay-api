@@ -4,7 +4,7 @@ export type BalanceGetInfoRequest = {
     hide_empty?: boolean,
 }
 
-type BalanceItem = {
+export type BalanceItem = {
     amount: number,
     currency: string,
 }
