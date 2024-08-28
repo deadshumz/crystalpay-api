@@ -1,5 +1,5 @@
 export default class CrystalUtils {
-    private baseUrl: string;
+    private readonly baseUrl: string;
 
     constructor(baseUrl: string = "https://api.crystalpay.io/v2") {
         this.baseUrl = baseUrl;

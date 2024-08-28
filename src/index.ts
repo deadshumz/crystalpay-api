@@ -14,7 +14,7 @@ import History from './api/History';
  * @param {string} auth_secret - CrystalPay secret
  */
 export default class CrystalPay {
-    public Me : Me;
+    public Me: Me;
     public Balance: Balance;
     public Method: Method;
     public Invoice: Invoice;
@@ -23,13 +23,14 @@ export default class CrystalPay {
     public History: History;
 
     constructor(auth_login: string, auth_secret: string) {
-        this.Me = new Me(auth_login, auth_secret, new CrystalUtils);
-        this.Balance = new Balance(auth_login, auth_secret, new CrystalUtils);
-        this.Method = new Method(auth_login, auth_secret, new CrystalUtils);
-        this.Invoice = new Invoice(auth_login, auth_secret, new CrystalUtils);
-        this.Payoff = new Payoff(auth_login, auth_secret, new CrystalUtils);
-        this.Ticker = new Ticker(auth_login, auth_secret, new CrystalUtils);
-        this.History = new History(auth_login, auth_secret, new CrystalUtils);
+        const utils = new CrystalUtils();
+        this.Me = new Me(auth_login, auth_secret, utils);
+        this.Balance = new Balance(auth_login, auth_secret, utils);
+        this.Method = new Method(auth_login, auth_secret, utils);
+        this.Invoice = new Invoice(auth_login, auth_secret, utils);
+        this.Payoff = new Payoff(auth_login, auth_secret, utils);
+        this.Ticker = new Ticker(auth_login, auth_secret, utils);
+        this.History = new History(auth_login, auth_secret, utils);
     }
 }
 

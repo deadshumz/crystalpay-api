@@ -10,7 +10,7 @@ import axios from "axios";
  * @param {CrystalUtils} crystal_utils - CrystalUtils instance
  */
 export default class Balance {
-    constructor(private auth_login: string, private auth_secret: string, private crystal_utils: CrystalUtils) {
+    constructor(private readonly auth_login: string, private readonly auth_secret: string, private crystal_utils: CrystalUtils) {
         this.auth_login = auth_login;
         this.auth_secret = auth_secret;
         this.crystal_utils = crystal_utils;
